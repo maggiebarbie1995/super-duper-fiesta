@@ -1,0 +1,97 @@
+
+<div class="navbar">
+  <p>GitHub World!!</p>    
+</div>
+
+
+<form action="" class="form-search">
+  <div class="form-group">
+    <input type="text" class="form-control"(keyup)="findProfile()" placeholder="Input Username:" [(ngModel)]="username" name="username">
+  </div>
+</form>
+
+<div *ngIf="profile">
+  <div class="panel panel-default">
+    <div class="container-fluid">
+      <!-- {{profile.name}} <small>({{profile.login}})</small>
+      , <span *ngIf="profile.location">{{profile.location}}</span> -->
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-3">
+          <img src="{{profile.avatar_url}}" class="img-circle img-responsive"alt="Profile Picture">
+        </div><hr> 
+        <div class="col-sm-5">
+          <ol class="list-group">
+            <li class="list-group-item" *ngIf="profile.bio">{{profile.bio}}</li>
+            <li class="list-group-item" *ngIf="profile.blog">{{profile.blog}}</li>
+            <li class="list-group-item" *ngIf="profile.hireable">{{profile.hire}}</li>
+            <li class="list-group-item" *ngIf="profile.email">{{profile.email}}</li>
+          </ol>
+        </div><hr>  
+        <div class="col-sm-4">
+          <p>
+            <span class="label label-primary">Following {{profile.following}}</span>
+            <span class="label label-default">{{profile.followers}} Followers</span>
+            <span class="label label-info">{{profile.public_repos}} Public Repos</span>
+            <span class="label label-success">{{profile.public_gists}} Public gists</span>                
+          </p>                  
+          <p><a href="{{profile.html_url}}" target="_blank" class="btn btn-success btn-sm">View profile on github</a></p>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Repos</h3>
+            </div>
+            <div class="panel-body" *ngFor="let repos of repos">
+              <p class="text-center">
+              {{repos.name}} <a href="{{repos.html_url}}" target="_blank" class="btn btn-sm btn-warning pull-right">View this project on github</a>
+              </p>
+              <p>{{repos.description}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <p>profile works!</p> -->
